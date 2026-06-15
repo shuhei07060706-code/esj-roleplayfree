@@ -2128,7 +2128,7 @@
       const body = {
         system_instruction: { parts: [{ text: systemInstruction }] },
         contents: [...history, { role: "user", parts: [{ text: userMessage }] }],
-        generation_config: { temperature: 0.9, maxOutputTokens: 1024 },
+        generation_config: { temperature: 0.9, maxOutputTokens: 1024, thinkingConfig: { thinkingBudget: 0 } },
       };
       for (let i = 0; i < keys.length; i++) {
         const key = keys[i];
@@ -2159,7 +2159,7 @@
       if (keys.length === 0) throw new Error("NO_KEY");
       const body = {
         contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generation_config: { temperature: 0.3, maxOutputTokens: 2048 },
+        generation_config: { temperature: 0.3, maxOutputTokens: 2048, thinkingConfig: { thinkingBudget: 0 } },
       };
       if (jsonMode) body.generation_config.response_mime_type = "application/json";
       for (let i = 0; i < keys.length; i++) {
