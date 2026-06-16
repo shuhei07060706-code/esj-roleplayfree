@@ -73,10 +73,11 @@
     }
 
     .sidebar-logo .logo-sub {
-      font-size: 16px;
+      font-size: 12px;
       color: rgba(255, 255, 255, 0.5);
-      margin-top: 3px;
+      margin-top: 4px;
       font-weight: 600;
+      line-height: 1.5;
     }
 
     .sidebar-user {
@@ -1635,6 +1636,25 @@
         padding-left: 56px;
         /* ハンバーガーボタン(left:14px + 幅38px) をかわす */
       }
+
+      /* ロールプレイ画面ヘッダー：狭い幅で氏名が割れないよう、採点ボタンを2段目の全幅に */
+      .rp-head {
+        flex-wrap: wrap;
+        row-gap: 10px;
+      }
+      .rp-head .rp-who { flex: 1 1 0; }
+      .rp-head .rp-who .nm {
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .rp-head .rp-who .ro { font-size: 13px; }
+      .rp-head .btn-score {
+        order: 5;
+        flex: 1 0 100%;
+        padding: 11px 16px;
+      }
     }
   </style>
   <!-- BudouX (Apache-2.0) 日本語の文節単位改行。<budoux-ja>でテキストを囲むと全ブラウザで自然に折り返す -->
@@ -1733,8 +1753,8 @@
   <!-- ===== SIDEBAR ===== -->
   <div id="sidebar">
     <div class="sidebar-logo">
-      <div class="logo-title">AIロールプレイ研修アプリ</div>
-      <div class="logo-sub">エシカル・スカイジャパン 対クライアント様ワーク研修</div>
+      <div class="logo-title"><budoux-ja>AIロールプレイ研修アプリ</budoux-ja></div>
+      <div class="logo-sub"><span style="white-space:nowrap">エシカル・スカイジャパン</span> <span style="white-space:nowrap">対クライアント様ワーク研修</span></div>
     </div>
     <div class="sidebar-user">
       <span class="u-av" id="sb-av"></span>
